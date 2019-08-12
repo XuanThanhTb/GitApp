@@ -11,8 +11,8 @@ class HomeScreenState extends State<HomeScreen>{
   Widget build(BuildContext context) {
    return Scaffold(
       appBar: null,
-      body: Container(
-        child: Text('home'),
+      body: Center(
+        child: Text('Hiển thị dữ liệu chính.', style: TextStyle(fontSize: 30), textAlign: TextAlign.center,),
       ),
     );
   }

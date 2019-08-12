@@ -8,17 +8,7 @@ void main() => runApp(MyApp());
 class MyApp extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
-    return  MaterialApp(
-      title: 'Git App',
-      debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text('Git Data', style: TextStyle(color: Colors.black, fontSize: 24),),
-          backgroundColor: Colors.yellow,
-        ),
-        body: GitApp(),
-      ),
-    );
+    return GitApp();
   }
 }
 class GitApp extends StatefulWidget{
@@ -52,24 +42,30 @@ class GitAppState extends State<GitApp>{
   }
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      // appBar: null,
-      body: _pageOptions[_selectedPage],
-      bottomNavigationBar: SizedBox(
-        child: BottomNavigationBar(
-          selectedItemColor: Colors.yellow,
-          unselectedItemColor:  Color(0xffB4B49D),
-          type: BottomNavigationBarType.fixed,
-          selectedFontSize: 12,
-          selectedLabelStyle: TextStyle(fontWeight: FontWeight.bold),
-          currentIndex: _selectedPage,
-          onTap: (int index){
-            setState(() {
-             _selectedPage = index; 
-            });
-          },
-          items: _listBottonbar,
+     return  MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text('Git Data', style: TextStyle(color: Colors.black, fontSize: 24),),
+          backgroundColor: Colors.yellow,
         ),
+        body: _pageOptions[_selectedPage],
+        bottomNavigationBar: SizedBox(
+          child: BottomNavigationBar(
+            selectedItemColor: Colors.yellow,
+            unselectedItemColor:  Color(0xffB4B49D),
+            type: BottomNavigationBarType.fixed,
+            selectedFontSize: 12,
+            selectedLabelStyle: TextStyle(fontWeight: FontWeight.bold),
+            currentIndex: _selectedPage,
+            onTap: (int index){
+              setState(() {
+              _selectedPage = index; 
+              });
+            },
+            items: _listBottonbar,
+          ),
+        ), 
       ),
     );
   }
@@ -83,6 +79,6 @@ class Constants{
   static List<Choices> botton = [
     Choices('Home', 'lib/images/home.png'),
     Choices('Messenger', 'lib/images/messenger.png'),
-    Choices('Profile', 'lib/images/prolife.png'),
+    Choices('Profile', 'lib/images/profile.png'),
   ];
 }

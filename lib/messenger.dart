@@ -8,12 +8,24 @@ class MessengerScreen extends StatefulWidget{
   }
 }
 class MessengerScreenState extends State<MessengerScreen>{
+  TextEditingController textEditingController = TextEditingController();
+  @override
+  void dispose(){
+    textEditingController.dispose();
+    super.dispose();
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: null,
-      body: Container(
-        child: Text('messenger'),
+      body: Center(
+        child: TextField(
+          cursorColor: Colors.black,
+          decoration: InputDecoration.collapsed(
+            hintText: 'UserName',
+          ),
+          controller: textEditingController,
+        )
       ),
     );
   }
