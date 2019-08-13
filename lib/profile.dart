@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:toast/toast.dart';
 
 
-
 class ProfileScreen extends StatefulWidget{
   var google = 'https://www.google.com/webhp?hl=vi&sa=X&ved=0ahUKEwi1v8zOg_3jAhVSeXAKHUthAUsQPAgH';
   @override
@@ -10,9 +9,11 @@ class ProfileScreen extends StatefulWidget{
     return ProfileScreenState();
   }
 }
+
 class ProfileScreenState extends State<ProfileScreen>{
   TextEditingController userName = TextEditingController();
   TextEditingController passWord = TextEditingController();
+  
 @override
 void _showDailog(){
   showDialog(context: context,
@@ -29,6 +30,7 @@ void _showDailog(){
             cursorColor: Colors.black,
             decoration: InputDecoration(
                labelText: 'Your username'
+              //  icon: Icon(Icon)
             ),
             controller: userName,
             ),
@@ -36,6 +38,8 @@ void _showDailog(){
          Padding(
            padding: EdgeInsets.symmetric(vertical: 8),
            child: TextFormField(
+             obscureText: true,
+             textCapitalization: TextCapitalization.none,
             cursorColor: Colors.black,
             decoration: InputDecoration(
               labelText: 'Your PassWord'
@@ -56,8 +60,6 @@ void _showDailog(){
           child: Text('CANCEL', style: TextStyle(color: Colors.black, fontSize: 18),),
           onPressed: (){
             Navigator.pop(context);
-            
-            // Navigator.push(context, MaterialPageRoute(builder: (context) => MyGoogle('https://www.google.com/webhp?hl=vi&sa=X&ved=0ahUKEwi1v8zOg_3jAhVSeXAKHUthAUsQPAgH')),);
             Toast.show('Bạn chưa đăng nhập', context, duration: Toast.LENGTH_SHORT, gravity:  Toast.BOTTOM);
           },
         ),

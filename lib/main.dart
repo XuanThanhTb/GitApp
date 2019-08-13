@@ -11,20 +11,24 @@ class MyApp extends StatelessWidget{
     return GitApp();
   }
 }
+
 class GitApp extends StatefulWidget{
   @override
   State<StatefulWidget> createState() {
     return GitAppState();
   }
 }
+
 class GitAppState extends State<GitApp>{ 
   var _selectedPage = 0;
   List<BottomNavigationBarItem> _listBottonbar = [];
+
   final _pageOptions = [
     HomeScreen(),
     MessengerScreen(),
     ProfileScreen(),
   ];
+  
   void initState(){
     Constants.botton.map((item){
       return _listBottonbar.add(
@@ -40,6 +44,7 @@ class GitAppState extends State<GitApp>{
       );
     }).toList();
   }
+
   @override
   Widget build(BuildContext context) {
      return  MaterialApp(
@@ -70,11 +75,13 @@ class GitAppState extends State<GitApp>{
     );
   }
 }
+
 class Choices{
   String name;
   String icon;
   Choices(this.name, this.icon);
 }
+
 class Constants{
   static List<Choices> botton = [
     Choices('Home', 'lib/images/home.png'),
